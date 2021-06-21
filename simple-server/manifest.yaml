@@ -1,0 +1,5 @@
+---
+applications:
+  - name: simple-server
+    buildpack: nodejs_buildpack
+    memory: 512M
