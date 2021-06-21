@@ -5,17 +5,13 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.TextView
-import com.android.volley.Request
 import com.android.volley.RequestQueue
-import com.android.volley.Response
-import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 
 class MainActivity : AppCompatActivity() {
 
-    lateinit var volleyQueue: RequestQueue
-
     companion object {
+        val LOG_TAG = "VolleyActivity"
         val BASE_URL = "https://simple-server.cfapps.eu10.hana.ondemand.com/"
         val RAW_ENDPOINT = "raw"
         val JSON_ENDPOINT = "json"
@@ -26,7 +22,6 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        volleyQueue = Volley.newRequestQueue(this)
 
         findViewById<Button>(R.id.retrieve_data_btn).setOnClickListener {
             retrieveData()
@@ -35,6 +30,25 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    fun retrieveData() {
+    private fun retrieveData() {
+        onNetworkActivityStart()
+        findViewById<TextView>(R.id.dataView).postDelayed({
+            findViewById<TextView>(R.id.dataView).text = "DUMMY_DATA"
+            onNetworkActivityEnd(false)
+        }, 1500)
+
+    }
+
+    private fun onNetworkActivityStart() {
+        findViewById<View>(R.id.error_view).visibility = View.GONE
+        findViewById<View>(R.id.progress_bar).visibility = View.VISIBLE
+        findViewById<Button>(R.id.retrieve_data_btn).isClickable = false
+
+    }
+
+    private fun onNetworkActivityEnd(isError: Boolean) {
+        findViewById<View>(R.id.error_view).visibility = if(isError) View.VISIBLE else View.GONE
+        findViewById<View>(R.id.progress_bar).visibility = View.GONE
+        findViewById<Button>(R.id.retrieve_data_btn).isClickable = true
     }
 }

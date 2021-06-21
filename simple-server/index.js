@@ -24,15 +24,12 @@ app.get("/json", (req, res, next) => {
 
 app.get("/raw", (req, res, next) => {
   setTimeout(function () {
-    res.attachment();
-    res.sendFile("/tmp/academy_networking/simple-server/resources/image.jpeg");
+    res.send("AHOJ");
   }, 1500);
-  res.send("AHOJ");
 });
 
 app.get("/file", (req, res, next) => {
   setTimeout(function () {
     res.attachment();
-    res.sendFile('resources/image.jpeg' , { root : __dirname});
   }, 1500);
 });
