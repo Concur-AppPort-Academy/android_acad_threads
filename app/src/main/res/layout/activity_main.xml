@@ -66,6 +66,7 @@
 
     <ImageView
         android:id="@+id/no_network"
+        android:visibility="gone"
         android:src="@android:drawable/ic_dialog_alert"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
