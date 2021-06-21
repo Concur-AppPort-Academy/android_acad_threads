@@ -6,8 +6,13 @@ var listOfPeople = [
   {
     name: "Sarah",
     surname: "Connor",
-    favouriteDay: "favorite_day",
+    favouriteDay: "Friday",
   },
+  {
+    name: "Garfield",
+    surname: "Davis",
+    favouriteDay: "Monday",
+  }
 ];
 
 var app = express();
