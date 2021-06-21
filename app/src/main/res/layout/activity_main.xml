@@ -35,6 +35,16 @@
 
     </LinearLayout>
 
+    <TextView
+        android:id="@+id/error_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="A problem ocurred during data load"
+        app:layout_constraintTop_toBottomOf="@id/advancedData"
+        android:textColor="#EC0958"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"/>
+
     <Button
         android:text="Retrieve Data"
         app:layout_constraintBottom_toBottomOf="parent"
