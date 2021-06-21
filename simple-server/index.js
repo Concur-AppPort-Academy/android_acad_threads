@@ -33,6 +33,6 @@ app.get("/raw", (req, res, next) => {
 app.get("/file", (req, res, next) => {
   setTimeout(function () {
     res.attachment();
-    res.sendFile("/tmp/academy_networking/simple-server/resources/image.jpeg");
+    res.sendFile('resources/image.jpeg' , { root : __dirname});
   }, 1500);
 });
