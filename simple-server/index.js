@@ -33,8 +33,3 @@ app.get("/raw", (req, res, next) => {
   }, 1500);
 });
 
-app.get("/file", (req, res, next) => {
-  setTimeout(function () {
-    res.attachment();
-  }, 1500);
-});
