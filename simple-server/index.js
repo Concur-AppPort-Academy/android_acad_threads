@@ -29,7 +29,7 @@ app.get("/json", (req, res, next) => {
 
 app.get("/raw", (req, res, next) => {
   setTimeout(function () {
-    res.send("AHOJ");
+    res.send("This data comes from the server");
   }, 1500);
 });
 
